@@ -149,7 +149,7 @@ h6 {
 .header .profile-img img {
   margin: 15px auto;
   display: block;
-  width: 120px;
+  width: 130px;
   border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
@@ -548,6 +548,9 @@ section,
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(1.0);
+  opacity: 0.8;
+  transition: 0.3s;
   z-index: 1;
 }
 
@@ -877,6 +880,31 @@ section,
 
 .portfolio .portfolio-content:hover img {
   transform: scale(1.1);
+}
+/* Ẩn các mục */
+.hidden {
+  display: none;
+}
+
+/* Nút Xem thêm / Rút gọn */
+.load-more-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.load-more-btn {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #444; /* hoặc tùy chỉnh */
 }
 
 /*--------------------------------------------------------------

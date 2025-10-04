@@ -1257,9 +1257,10 @@ section,
   transition: transform 0.4s ease;
 }
 
+/* Lớp phủ mặc định cho Desktop */
 .portfolio .portfolio-content .portfolio-info {
   opacity: 0;
-  position: absolute;
+  position: absolute; /* Lớp phủ chồng lên trên Desktop */
   inset: 0;
   z-index: 3;
   transition: all ease-in-out 0.4s;
@@ -1320,7 +1321,8 @@ section,
 }
 
 .load-more-btn {
-  background-color: var(--accent-color);
+  /* Giả sử var(--accent-color) là biến màu chủ đạo của bạn */
+  background-color: var(--accent-color, #007bff); 
   color: #fff;
   border: none;
   padding: 12px 28px;
@@ -1343,30 +1345,76 @@ section,
   }
 }
 
+/* ------------------------------------------------ */
+/* Tối ưu cho Mobile Lớn & Tablet (<= 768px) */
+/* **KHẮC PHỤC LỖI BỊ ĐÈ & LỘN XỘN** */
+/* ------------------------------------------------ */
 @media (max-width: 768px) {
+  .portfolio .portfolio-content {
+    margin-bottom: 25px; /* Giảm nhẹ khoảng cách trên mobile */
+    transform: none !important; /* Vô hiệu hóa hover/touch transform */
+  }
+  
   .portfolio .portfolio-content .logo-box {
     height: 160px;
   }
+  
+  /* **QUAN TRỌNG: FIX LỖI BỊ ĐÈ** */
+  .portfolio .portfolio-content .portfolio-info {
+    position: static; /* Thay đổi từ absolute sang static để hiển thị dưới ảnh */
+    opacity: 1; /* Luôn hiển thị thông tin */
+    background: #fff; /* Nền trắng, không che ảnh */
+    color: #333; /* Chữ đen dễ đọc */
+    padding: 15px;
+    text-align: left; /* Căn lề trái cho dễ đọc trên mobile */
+    transition: none; /* Bỏ transition */
+    display: block; /* Trở về hiển thị khối bình thường */
+  }
+
+  /* Vô hiệu hóa hiệu ứng hover trên mobile */
+  .portfolio .portfolio-content:hover .portfolio-info {
+    opacity: 1;
+  }
+  .portfolio .portfolio-content:hover img {
+    transform: scale(1);
+  }
+  
   .portfolio .portfolio-content .portfolio-info h4 {
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2px;
   }
   .portfolio .portfolio-content .portfolio-info p {
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  /* Điều chỉnh nút preview */
+  .portfolio .portfolio-content .portfolio-info .preview-link {
+    display: inline-block;
+    color: var(--accent-color, #007bff);
+    font-size: 20px;
+    padding-top: 5px;
   }
 }
 
+/* ------------------------------------------------ */
+/* Tối ưu cho Mobile Nhỏ (<= 480px) */
+/* ------------------------------------------------ */
 @media (max-width: 480px) {
   .portfolio .portfolio-content .logo-box {
     height: 140px;
   }
   .portfolio .portfolio-content .portfolio-info h4 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .portfolio .portfolio-content .portfolio-info p {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
-
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/

@@ -6,16 +6,31 @@ require_auth();
 
 $method = $_SERVER['REQUEST_METHOD'];
 $section = strtolower(trim($_GET['section'] ?? ''));
+
 if ($section === '' || !allowed_section($section)) {
     error_response(400, 'Invalid section');
 }
 
-$file = DATA_DIR . '/' . $section . '.json';
+$collection = get_collection($section);
 
 switch ($method) {
     case 'GET':
-        $data = read_json($file, []);
-        ok($data);
+        $doc = $collection->findOne([]);
+        if ($doc) {
+            $data = bson_to_array($doc);
+            if (isset($data['_id'])) {
+                unset($data['_id']);
+            }
+            if (isset($data['createdAt'])) {
+                unset($data['createdAt']);
+            }
+            if (isset($data['updatedAt'])) {
+                unset($data['updatedAt']);
+            }
+            ok($data);
+        } else {
+            ok([]);
+        }
         break;
 
     case 'POST':
@@ -24,24 +39,42 @@ switch ($method) {
         if (!is_array($input)) {
             error_response(400, 'Invalid JSON');
         }
-        // Basic sanitation for strings to reduce XSS risk; keep content flexible
+
+        // Basic sanitation for strings to reduce XSS risk
         array_walk_recursive($input, function (&$v) {
             if (is_string($v)) {
-                // Strip script tags only
                 $v = preg_replace('/<\s*script[^>]*>.*?<\s*\/\s*script\s*>/is', '', $v);
             }
         });
-        if (!write_json($file, $input)) {
-            error_response(500, 'Failed to save');
+
+        $input['updatedAt'] = new \MongoDB\BSON\UTCDateTime();
+        if (!isset($input['createdAt'])) {
+            $input['createdAt'] = new \MongoDB\BSON\UTCDateTime();
         }
-        ok(['saved' => true]);
+
+        try {
+            $existing = $collection->findOne([]);
+            if ($existing) {
+                $collection->updateOne(
+                    ['_id' => $existing['_id']],
+                    ['$set' => $input]
+                );
+            } else {
+                $collection->insertOne($input);
+            }
+            ok(['saved' => true]);
+        } catch (\Exception $e) {
+            error_response(500, 'Failed to save: ' . $e->getMessage());
+        }
         break;
 
     case 'DELETE':
-        if (file_exists($file)) {
-            unlink($file);
+        try {
+            $collection->deleteMany([]);
+            ok(['deleted' => true]);
+        } catch (\Exception $e) {
+            error_response(500, 'Failed to delete');
         }
-        ok(['deleted' => true]);
         break;
 
     default:

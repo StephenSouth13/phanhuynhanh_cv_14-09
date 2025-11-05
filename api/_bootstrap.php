@@ -1,7 +1,4 @@
 <?php
-// Common bootstrap for API endpoints
-// Starts session, sets constants, and provides helper functions
-
 declare(strict_types=1);
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -10,47 +7,22 @@ if (session_status() === PHP_SESSION_NONE) {
 
 header('Content-Type: application/json; charset=utf-8');
 
-// Base directories
-define('DATA_DIR', __DIR__ . '/../data');
+require_once __DIR__ . '/_database.php';
+
 define('UPLOADS_DIR', __DIR__ . '/../uploads');
 
-// Ensure directories exist
-if (!is_dir(DATA_DIR)) {
-    mkdir(DATA_DIR, 0755, true);
-}
 if (!is_dir(UPLOADS_DIR)) {
     mkdir(UPLOADS_DIR, 0755, true);
 }
 
-// Initialize users store if missing
-$usersFile = DATA_DIR . '/users.json';
-if (!file_exists($usersFile)) {
-    $defaultUser = [
-        [
-            'email' => 'admin@example.com',
-            // password: admin123 (please change immediately after first login)
-            'passwordHash' => password_hash('admin123', PASSWORD_DEFAULT),
-            'name' => 'Administrator',
-            'avatar' => ''
-        ]
-    ];
-    file_put_contents($usersFile, json_encode($defaultUser, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+try {
+    MongoDBHelper::initializeCollections();
+} catch (\Exception $e) {
+    error_log('MongoDB initialization error: ' . $e->getMessage());
 }
 
-function read_json(string $path, $default = []): array {
-    if (!file_exists($path)) return is_array($default) ? $default : [];
-    $raw = file_get_contents($path);
-    if ($raw === false || $raw === '') return is_array($default) ? $default : [];
-    $data = json_decode($raw, true);
-    return is_array($data) ? $data : (is_array($default) ? $default : []);
-}
-
-function write_json(string $path, array $data): bool {
-    $tmp = $path . '.tmp';
-    $json = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-    if ($json === false) return false;
-    if (file_put_contents($tmp, $json) === false) return false;
-    return rename($tmp, $path);
+function get_collection(string $name): \MongoDB\Collection {
+    return MongoDBHelper::collection($name);
 }
 
 function json_input(): array {
@@ -89,4 +61,8 @@ function sanitize_filename(string $name): string {
 function allowed_section(string $section): bool {
     $allowed = ['home','about','resume','portfolio','services','contact','settings'];
     return in_array($section, $allowed, true);
+}
+
+function bson_to_array(\MongoDB\Model\BSONDocument $doc): array {
+    return json_decode(json_encode($doc), true);
 }

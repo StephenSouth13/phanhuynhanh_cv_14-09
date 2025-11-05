@@ -1,0 +1,10 @@
+{
+  "programs": [
+    {"title": "Đào Tạo Kỹ Năng Mềm & Khởi Nghiệp", "description": "Khóa học và hội thảo về kỹ năng mềm, khởi nghiệp và mentoring."},
+    {"title": "Tư Vấn Học Kỳ Doanh Nghiệp", "description": "Kết nối sinh viên với doanh nghiệp qua Học kỳ Doanh nghiệp."},
+    {"title": "Marketing & Xây Dựng Thương Hiệu", "description": "Tư vấn chiến lược marketing, xây dựng thương hiệu, sự kiện và MICE."},
+    {"title": "Đổi Mới & Tích Hợp Công Nghệ", "description": "Tích hợp công nghệ và đổi mới vào hoạt động tổ chức."},
+    {"title": "Tư Vấn Quản Lý Dự Án", "description": "Chuyên môn quản lý dự án từ lập kế hoạch đến thực thi."},
+    {"title": "Đào Tạo Giao Tiếp Doanh Nghiệp", "description": "Nâng cao kỹ năng giao tiếp trong môi trường doanh nghiệp."}
+  ]
+}

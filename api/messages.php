@@ -4,26 +4,46 @@ require __DIR__ . '/_bootstrap.php';
 
 require_auth();
 
-$messagesFile = DATA_DIR . '/messages.json';
-if (!file_exists($messagesFile)) {
-    write_json($messagesFile, []);
-}
-
+$messagesCollection = get_collection('messages');
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
-    $items = read_json($messagesFile, []);
-    // Sort newest first by createdAt
-    usort($items, function($a, $b) {return strcmp($b['createdAt'] ?? '', $a['createdAt'] ?? '');});
-    ok(['items' => $items]);
+    $items = $messagesCollection->find(
+        [],
+        ['sort' => ['createdAt' => -1]]
+    );
+    
+    $result = [];
+    foreach ($items as $doc) {
+        $arr = bson_to_array($doc);
+        if (isset($arr['_id'])) {
+            $arr['id'] = (string)$arr['_id'];
+            unset($arr['_id']);
+        }
+        $result[] = $arr;
+    }
+    
+    ok(['items' => $result]);
 }
 elseif ($method === 'DELETE') {
     $id = (string)($_GET['id'] ?? '');
-    if ($id === '') error_response(400, 'Missing id');
-    $items = read_json($messagesFile, []);
-    $filtered = array_values(array_filter($items, fn($m) => ($m['id'] ?? '') !== $id));
-    if (!write_json($messagesFile, $filtered)) error_response(500, 'Failed to delete');
-    ok(['deleted' => true]);
+    if ($id === '') {
+        error_response(400, 'Missing id');
+    }
+    
+    try {
+        $result = $messagesCollection->deleteOne([
+            '_id' => new \MongoDB\BSON\ObjectId($id)
+        ]);
+        
+        if ($result->getDeletedCount() === 0) {
+            error_response(404, 'Message not found');
+        }
+        
+        ok(['deleted' => true]);
+    } catch (\Exception $e) {
+        error_response(400, 'Invalid message id');
+    }
 }
 else {
     error_response(405, 'Method Not Allowed');

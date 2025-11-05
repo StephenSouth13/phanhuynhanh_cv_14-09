@@ -21,6 +21,12 @@ switch ($method) {
             if (isset($data['_id'])) {
                 unset($data['_id']);
             }
+            if (isset($data['createdAt'])) {
+                unset($data['createdAt']);
+            }
+            if (isset($data['updatedAt'])) {
+                unset($data['updatedAt']);
+            }
             ok($data);
         } else {
             ok([]);

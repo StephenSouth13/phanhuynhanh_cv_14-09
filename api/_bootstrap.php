@@ -64,5 +64,20 @@ function allowed_section(string $section): bool {
 }
 
 function bson_to_array(\MongoDB\Model\BSONDocument $doc): array {
-    return json_decode(json_encode($doc), true);
+    $arr = json_decode(json_encode($doc), true);
+
+    // Convert MongoDB ObjectId to string
+    if (isset($arr['_id']) && is_array($arr['_id']) && isset($arr['_id']['$oid'])) {
+        $arr['_id'] = $arr['_id']['$oid'];
+    }
+
+    // Convert MongoDB UTCDateTime to ISO 8601 string
+    array_walk_recursive($arr, function (&$value) {
+        if (is_array($value) && isset($value['$date'])) {
+            $timestamp = intval($value['$date']) / 1000;
+            $value = gmdate('c', $timestamp);
+        }
+    });
+
+    return $arr;
 }

@@ -1,0 +1,19 @@
+{
+  "portraitImage": "assets/img/img.png",
+  "headline": "Lý do Website được ra đời",
+  "bioHtml": "<p>Cảm ơn Quý vị và các bạn đã quan tâm và ghé thăm trang thông tin chính thức của Thầy Phan Huỳnh Anh.</p><p>Được sự cho phép trực tiếp từ TS. Phan Huỳnh Anh, cộng đồng Mentee MSC Center xây dựng website với mục đích:</p><ul><li>Ngăn ngừa các nguồn tin giả mạo hoặc sai lệch trên mạng.</li><li>Toàn bộ nội dung trên website đều do thành viên MSC trực tiếp biên soạn và cập nhật, nhằm chia sẻ về hoạt động, định hướng cũng như các giá trị cốt lõi mà MSC Center đồng hành cùng thầy Phan Huỳnh Anh. Đây cũng là kênh kết nối chính thống giữa Thầy Phan Huỳnh Anh với cộng đồng, doanh nghiệp và những người quan tâm.</li></ul>",
+  "quote": "Con đường xa nhất là từ miệng đến tai - PDCA, Kaizen.",
+  "bulletsLeft": [
+    "Cung cấp kênh thông tin chính thống và xác thực về Thầy.",
+    "Giới thiệu hành trình học thuật, giảng dạy, nghiên cứu và các dự án cộng đồng tiêu biểu."
+  ],
+  "bulletsRight": [
+    "Kết nối sinh viên, đồng nghiệp và doanh nghiệp với các hoạt động đào tạo, mentoring và coaching do Thầy khởi xướng.",
+    "Ngăn ngừa các nguồn tin giả mạo hoặc sai lệch trên mạng."
+  ],
+  "socials": {
+    "x": "#",
+    "facebook": "#",
+    "linkedin": "#"
+  }
+}

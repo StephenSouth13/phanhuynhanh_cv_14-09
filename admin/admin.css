@@ -1,8 +1,0 @@
-/* Layout helpers */
-.admin-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
-.sidebar{border-right:1px solid rgba(0,0,0,0.08)}
-.content{display:grid;grid-template-rows:auto 1fr}
-.section-form{display:grid;grid-template-columns:1fr 420px;gap:1rem}
-.preview-pane{border-left:1px solid rgba(0,0,0,0.08);padding-left:1rem}
-.status-badge{font-size:.875rem}
-.card-draggable{cursor:move}

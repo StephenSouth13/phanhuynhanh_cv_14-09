@@ -242,6 +242,73 @@
     return root;
   }
 
+  function portfolioCardEditor({title, items, onChange, section}){
+    const root = h(`<div class="card bg-base-100 shadow"><div class="card-body"><h3 class="card-title">${title}</h3><div class="grid gap-3" data-list></div><button class="btn btn-sm" type="button">Thêm dự án</button></div></div>`);
+    const list = qs('[data-list]', root);
+    function render(){
+      list.innerHTML='';
+      items.forEach((it, idx)=>{
+        const card = h(`<div class="p-3 border border-base-300 rounded card-draggable grid gap-3">
+          <div class="grid gap-2">
+            <div class="text-sm font-semibold">Ảnh dự án</div>
+            <div class="flex items-center gap-2">
+              <img src="${it.image||'https://via.placeholder.com/150'}" class="w-20 h-20 object-cover rounded border border-base-300" />
+              <div class="flex-1 grid gap-2">
+                <input type="file" class="file-input file-input-bordered file-input-xs" accept="image/*" />
+                ${it.image ? `<p class="text-xs opacity-70">${it.image}</p>` : ''}
+              </div>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-2">
+            <input class="input input-bordered input-sm" placeholder="Tên dự án"/>
+            <input class="input input-bordered input-sm" placeholder="Liên kết (URL)"/>
+          </div>
+          <input class="input input-bordered input-sm" placeholder="Mô tả"/>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3"><span>Hiển thị</span><input type="checkbox" class="toggle"/></div>
+            <button class="btn btn-xs btn-error">Xóa</button>
+          </div>
+        </div>`);
+        const fileInp = qs('input[type="file"]', card);
+        const [nameInp, urlInp] = qsa('input.input', card);
+        const descInp = qsa('input.input')[2] || qs('input[placeholder="Mô tả"]', card);
+        const toggle = qs('input.toggle', card);
+        const img = qs('img', card);
+
+        nameInp.value = it.name||''; urlInp.value = it.url||''; descInp.value = it.description||''; toggle.checked = it.visible!==false;
+
+        fileInp.addEventListener('change', async e=>{
+          if(!e.target.files || !e.target.files[0]) return;
+          const fd = new FormData(); fd.append('file', e.target.files[0]);
+          try{
+            const res = await api('upload.php', { method:'POST', body: fd });
+            it.image = res.url;
+            img.src = res.url;
+            onChange([...items]);
+            debounceSave(section);
+          }catch(err){ alert('Upload ảnh thất bại'); }
+        });
+
+        nameInp.addEventListener('input', e=>{ it.name=e.target.value; onChange([...items]); debounceSave(section);});
+        urlInp.addEventListener('input', e=>{ it.url=e.target.value; onChange([...items]); debounceSave(section);});
+        descInp.addEventListener('input', e=>{ it.description=e.target.value; onChange([...items]); debounceSave(section);});
+        toggle.addEventListener('change', e=>{ it.visible=!!e.target.checked; onChange([...items]); debounceSave(section);});
+
+        const del = qs('button.btn-error', card);
+        del.addEventListener('click', ()=>{ items.splice(idx,1); onChange([...items]); render(); debounceSave(section);});
+
+        card.draggable=true;
+        card.addEventListener('dragstart', e=>{ e.dataTransfer.setData('text/plain', idx.toString()); });
+        card.addEventListener('dragover', e=>{ e.preventDefault(); });
+        card.addEventListener('drop', e=>{ e.preventDefault(); const from = +e.dataTransfer.getData('text/plain'); const to = idx; const moved = items.splice(from,1)[0]; items.splice(to,0,moved); onChange([...items]); render(); debounceSave(section); });
+        list.appendChild(card);
+      });
+    }
+    render();
+    qs('button', root).addEventListener('click', ()=>{ items.push({name:'', description:'', image:'', url:'', visible:true}); onChange([...items]); render(); debounceSave(section); });
+    return root;
+  }
+
   function renderHome(container){
     const d = state.data.home = Object.assign({heading:'', subtitle:'', bannerImage:''}, state.data.home||{});
     const form = h('<div class="grid gap-3"></div>');
@@ -324,10 +391,9 @@
     const d = state.data.portfolio = Object.assign({items:[]}, state.data.portfolio||{});
     const form = h('<div class="grid gap-3"></div>');
     const items = d.items = d.items || [];
-    // card editor without image upload inline; add separate upload per item when selected? Keep simple: text-only + show URL
-    const cards = cardEditor({title:'Danh sách dự án / lĩnh vực', items, onChange: arr=>{ d.items = arr; }});
+    const cards = portfolioCardEditor({title:'Danh sách dự án / lĩnh vực - Các tổ chức xã hội do thầy Phan Huỳnh Anh sáng lập', items, onChange: arr=>{ d.items = arr; }, section: 'portfolio'});
     form.appendChild(cards);
-    const preview = h(`<div class="preview-pane"><div class="prose max-w-none"><ul>${(items||[]).filter(x=>x.visible!==false).map(x=>`<li>${x.name||''} - ${x.description||''}</li>`).join('')}</ul></div></div>`);
+    const preview = h(`<div class="preview-pane"><div class="prose max-w-none"><ul>${(items||[]).filter(x=>x.visible!==false).map(x=>`<li><strong>${x.name||''}</strong> - ${x.description||''} <img src="${x.image||''}" style="max-width: 100px; margin-top: 5px;" /></li>`).join('')}</ul></div></div>`);
     container.appendChild(form); container.appendChild(preview);
   }
 

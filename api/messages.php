@@ -12,17 +12,17 @@ if ($method === 'GET') {
         [],
         ['sort' => ['createdAt' => -1]]
     );
-    
+
     $result = [];
     foreach ($items as $doc) {
         $arr = bson_to_array($doc);
         if (isset($arr['_id'])) {
-            $arr['id'] = (string)$arr['_id'];
+            $arr['id'] = $arr['_id'];
             unset($arr['_id']);
         }
         $result[] = $arr;
     }
-    
+
     ok(['items' => $result]);
 }
 elseif ($method === 'DELETE') {

@@ -1,6 +1,5 @@
 {
   "buildCommand": "composer install --no-dev",
-  "framework": "php",
   "functions": {
     "api/**/*.php": {
       "runtime": "php-8.3"

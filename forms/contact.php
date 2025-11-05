@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../api/_bootstrap.php';
 
-$receiving_email_address = 'stephensouth1307@example.com';
+$receiving_email_address = 'msc.edu.vn@gmail.com';
 
 // Load contact settings if available
 $contactCollection = get_collection('contact');

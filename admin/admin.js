@@ -272,7 +272,7 @@
   }
 
   function renderResume(container){
-    const d = state.data.resume = Object.assign({summary:'', degrees:[], nationalProjects:[], contributions:[], experiences:[], teaching:[]}, state.data.resume||{});
+    const d = state.data.resume = Object.assign({summary:'', degrees:[], nationalProjects:[], contributions:[], experiences:[], teaching:[], achievements:[]}, state.data.resume||{});
     const form = h('<div class="grid gap-3"></div>');
     form.appendChild(textarea('Tóm tắt', d.summary, v=>{d.summary=v; debounceSave('resume');}));
     form.appendChild(listEditor({title:'Bằng cấp & Chuyên môn', items: d.degrees || [], onChange:(arr)=>{d.degrees=arr;}}));
@@ -314,6 +314,7 @@
     form.appendChild(expRoot);
 
     form.appendChild(listEditor({title:'Giảng dạy', items: d.teaching || [], onChange:(arr)=>{d.teaching=arr;}}));
+    form.appendChild(listEditor({title:'Thành tựu KH&CN và sản xuất kinh doanh', items: d.achievements || [], onChange:(arr)=>{d.achievements=arr;}}));
 
     const preview = h(`<div class="preview-pane"><div class="prose max-w-none"><h3>${d.summary||''}</h3><ul>${(d.degrees||[]).map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`);
     container.appendChild(form); container.appendChild(preview);

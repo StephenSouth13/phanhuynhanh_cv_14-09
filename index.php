@@ -1,0 +1,637 @@
+<?php include 'includes/config.php'; ?>
+<?php include 'includes/header.php'; ?>
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tiến sĩ Phan Huỳnh Anh | Giảng viên - Mentor - Doanh nhân</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Tiến sĩ Phan Huỳnh Anh - Giảng viên, doanh nhân, mentor khởi nghiệp với hơn 15 năm kinh nghiệm trong giáo dục, marketing, CNTT và phát triển hệ sinh thái khởi nghiệp tại Việt Nam.">
+  <meta name="keywords" content="Phan Huỳnh Anh, Tiến sĩ Kinh tế, Giảng viên UEH, Mentor khởi nghiệp, Chuyên gia marketing, Doanh nhân, MCSE, CCNP, VCCI, Smentor, giáo dục thực hành, mentoring Việt Nam, khởi nghiệp, hệ sinh thái khởi nghiệp">
+  <meta name="author" content="Phan Huỳnh Anh">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tiến sĩ Phan Huỳnh Anh - Hồ sơ & Thành tựu">
+  <meta property="og:description" content="Giảng viên, mentor, doanh nhân với sứ mệnh thu hẹp khoảng cách giữa đại học và doanh nghiệp, phát triển hệ sinh thái khởi nghiệp Việt Nam.">
+  <meta property="og:image" content="https://phanhuynhanh.com/assets/img/hero.jpg">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://phanhuynhanh.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tiến sĩ Phan Huỳnh Anh - Hồ sơ & Thành tựu">
+  <meta name="twitter:description" content="Mentor, giảng viên, doanh nhân với hơn 15 năm kinh nghiệm trong giáo dục và khởi nghiệp.">
+  <meta name="twitter:image" content="https://phanhuynhanh.com/assets/img/img.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/ffvn.png">
+  <link rel="apple-touch-icon" href="assets/img/ffvn.png">
+
+  <!-- Fonts & Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <!-- Header -->
+  <header id="header" class="header dark-background d-flex flex-column align-items-center justify-content-between p-3">
+    <!-- Toggle Menu for Mobile -->
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <!-- Profile Image -->
+    <div class="profile-img mb-3">
+      <img src="assets/img/PROFILE.png" alt="Phan Huỳnh Anh" class="img-fluid rounded-circle shadow-lg">
+    </div>
+
+    <!-- Name / Logo -->
+    <a href="index.html" class="logo text-center">
+      <h1 class="sitename mb-1">Phan Huỳnh Anh</h1>
+      <small class="text-muted d-block">Tiến sĩ Kinh tế | Giảng viên | Mentor</small>
+    </a>
+
+    <!-- Social Links -->
+    <div class="social-links text-center mt-3">
+      <a href="#" class="mx-2"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="mx-2"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="mx-2"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav id="navmenu" class="navmenu mt-4">
+      <ul class="nav flex-column">
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Trang chủ</a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i> Về tôi</a></li>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Hồ sơ</a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Danh mục</a></li>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Chương trình đào tạo</a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Liên hệ</a></li>
+        <li><a href="en.html"><i class="bi bi-globe navicon"></i> English</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main class="main">
+
+    <!-- Phần Hero -->
+    <section id="hero" class="hero section dark-background">
+      <img src="assets/img/hero.jpg" alt="" data-aos="fade-in" class="">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>Phan Huỳnh Anh</h2>
+        <p>Thầy <span class="typed" data-typed-items="coaching cho sinh viên cùng bạn trẻ khởi nghiệp"></span></p>
+      </div>
+    </section><!-- /Phần Hero -->
+
+    <!-- Phần Giới Thiệu -->
+    <section id="about" class="about section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Giới Thiệu</h2>
+        <blockquote style="font-style: italic; color: #555; border-left: 4px solid #ccc; padding-left: 15px; margin-top: 20px;">
+          “Con đường xa nhất là từ miệng đến tai - PDCA, Kaizen.”
+        </blockquote>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4">
+            <img src="assets/img/img.png" class="img-fluid" alt="Phan Huỳnh Anh">
+          </div>
+          <div class="col-lg-8 content">
+            <h2>Lý do Website được ra đời</h2>
+            <p class="fst-italic py-3">
+              Cảm ơn Quý vị và các bạn đã quan tâm và ghé thăm trang thông tin chính thức của Thầy Phan Huỳnh Anh.
+Được sự cho phép trực tiếp từ TS. Phan Huỳnh Anh, cộng đồng Mentee MSC Center xây dựng website với mục đích:
+
+
+<br>
+-Ngăn ngừa các nguồn tin giả mạo hoặc sai lệch trên mạng.
+<br>
+- Toàn bộ nội dung trên website đều do thành viên MSC trực tiếp biên soạn và cập nhật, nhằm chia sẻ về hoạt động, định hướng cũng như các giá trị cốt lõi mà MSC Center đồng hành cùng thầy Phan Huỳnh Anh. Đây cũng là kênh kết nối chính thống giữa Thầy Phan Huỳnh Anh với cộng đồng, doanh nghiệp và những người quan tâm.
+
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <span>Cung cấp kênh thông tin chính thống và xác thực về Thầy.</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <span>Giới thiệu hành trình học thuật, giảng dạy, nghiên cứu và các dự án cộng đồng tiêu biểu.</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i>  <span>Kết nối sinh viên, đồng nghiệp và doanh nghiệp với các hoạt động đào tạo, mentoring và coaching do Thầy khởi xướng.</span></li>
+                  <li><i class="bi bi-chevron-right"></i>  <span>Ngăn ngừa các nguồn tin giả mạo hoặc sai lệch trên mạng.</span></li>
+                </ul>
+              </div>
+            </div>
+            <p class="py-3">
+              Toàn bộ nội dung trên website đều do thành viên MSC trực tiếp biên soạn và cập nhật, nhằm chia sẻ về hoạt động, định hướng cũng như các giá trị cốt lõi mà MSC Center đồng hành cùng thầy Phan Huỳnh Anh. Đây cũng là kênh kết nối chính thống giữa Thầy Phan Huỳnh Anh với cộng đồng, doanh nghiệp và những người quan tâm.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Phần Về Tôi -->
+
+    <!-- Phần Thống kê -->
+    <section id="stats" class="stats section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-emoji-smile"></i>
+              <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Sinh viên đã được hướng dẫn</strong></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-journal-richtext"></i>
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Doanh nghiệp hợp tác</strong></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-headset"></i>
+              <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Số giờ đào tạo</strong></p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-people"></i>
+              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Dự án đầu tư</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- Kết thúc Phần Thống kê -->
+
+    <!-- Phần Kỹ năng -->
+    <section id="skills" class="skills section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Kỹ năng</h2>
+        <p>Các kỹ năng chính trong giáo dục, mentoring doanh nghiệp, marketing và đào tạo doanh nghiệp.</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row skills-content skills-animation">
+          <div class="col-lg-6">
+            <div class="progress">
+              <span class="skill"><span>Đào tạo kỹ năng mềm</span> <i class="val">95%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>Mentoring</span> <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>Marketing</span> <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>Xây dựng đội ngũ</span> <i class="val">85%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="progress">
+              <span class="skill"><span>Tổ chức sự kiện</span> <i class="val">85%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>Tư vấn khởi nghiệp</span> <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>MICE & Du lịch</span> <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="progress">
+              <span class="skill"><span>Marketing kỹ thuật số</span> <i class="val">85%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Phần Kỹ năng -->
+
+    <!-- Phần Hồ sơ -->
+<section id="resume" class="resume section">
+  <div class="container section-title text-center" data-aos="fade-up">
+    <h2><i class="fas fa-user-tie"></i> Hồ sơ</h2>
+    <p class="fst-italic">
+      <i class="fas fa-quote-left"></i> 
+      Tôi là Thầy Phan Huỳnh Anh, đam mê giáo dục thực hành và mentoring doanh nghiệp. 
+      Sứ mệnh của thầy là thu hẹp khoảng cách giữa đại học và doanh nghiệp, giúp sinh viên có được kinh nghiệm thực tế và kỹ năng cần thiết cho sự nghiệp tương lai. 
+      <i class="fas fa-quote-right"></i>
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- CỘT TRÁI -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="resume-title"><i class="fas fa-user-circle"></i> Bằng cấp & Chuyên môn</h3>
+        <p class="mb-3">
+          Giảng viên, doanh nhân và mentor khởi nghiệp với kinh nghiệm phong phú trong marketing, 
+          ươm tạo doanh nghiệp và CNTT. Có nhiều bằng cấp, chứng chỉ quốc tế, tập trung mạnh mẽ vào 
+          giáo dục thực hành và phát triển hệ sinh thái khởi nghiệp.
+        </p>
+
+        <div class="resume-item"><h4><i class="fas fa-laptop-code"></i> Cử nhân Công nghệ Thông tin</h4></div>
+        <div class="resume-item"><h4><i class="fas fa-briefcase"></i> Cử nhân Kinh tế</h4></div>
+        <div class="resume-item"><h4><i class="fas fa-user-graduate"></i> Thạc sĩ Kinh tế</h4></div>
+        <div class="resume-item"><h4><i class="fas fa-user-tie"></i> Tiến sĩ Kinh tế</h4></div>
+        <div class="resume-item"><h4><i class="fa-solid fa-user-secret"></i> Chuyên viên Microsoft (MCSE)</h4></div>
+        <div class="resume-item"><h4><i class="fas fa-network-wired"></i> Chuyên viên Cisco (CCNP)</h4></div>
+        <div class="resume-item"><h4><i class="fas fa-chalkboard-teacher"></i> Giảng viên Khởi nghiệp Quốc gia (VCCI)</h4></div>
+
+        <h3 class="resume-title mt-4"><i class="fas fa-tasks"></i> Dự án cấp quốc gia</h3>
+        <div class="resume-item">
+          <ul>
+            <li>Quảng bá Du lịch – Long An (2018–2019, Được phê duyệt)</li>
+            <li>Du lịch Ban đêm – Sóc Trăng, Vũng Tàu, Kiên Giang (2020–nay)</li>
+            <li>Thành viên Hội đồng Khởi nghiệp Quốc gia – VCCI (2017–nay)</li>
+            <li>Thành viên – Hiệp hội Du lịch Việt Nam (2015–nay)</li>
+            <li>CLB Giám đốc Bán hàng & Marketing – Việt Nam (2017–nay)</li>
+          </ul>
+        </div>
+
+        <h3 class="resume-title mt-4"><i class="fas fa-project-diagram"></i> Dự án & Đóng góp</h3>
+        <div class="resume-item">
+          <ul>
+            <li>Chương trình Học kỳ Doanh nghiệp (50 doanh nghiệp tham gia, 2018–2020)</li>
+            <li>Chương trình Mentoring – VCCI (2019–nay)</li>
+            <li>Kỹ năng Định vị Cá nhân & Doanh nghiệp (UEH, 2019–nay)</li>
+            <li>Giá trị Văn hóa Việt Nam – Happyland (2019–nay)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CỘT PHẢI -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="resume-title"><i class="fas fa-briefcase"></i> Kinh nghiệm chuyên môn</h3>
+        <div class="resume-item"><h4>Chủ tịch – Viện Smentor</h4><h5>2019 - Nay</h5><p><em>261 Bàu Cát, P.12, Q. Tân Bình, HCM</em></p></div>
+        <div class="resume-item"><h4>Giám đốc Điều hành – Smentor</h4><h5>2017 - 2019</h5><p><em>205A Nguyễn Xí, Q. Bình Thạnh, HCM</em></p></div>
+        <div class="resume-item"><h4>Giám đốc Marketing – Exotic Vietnam</h4><h5>2013 - 2017</h5><p><em>453/7 Nguyễn Đình Chiểu, Q.3, HCM</em></p></div>
+        <div class="resume-item"><h4>Trưởng phòng CNTT & Thương mại điện tử – Vietmark</h4><h5>2008 - 2012</h5><p><em>385 Trần Hưng Đạo, Q.1, HCM</em></p></div>
+        <div class="resume-item"><h4>Nhân viên CNTT – Sacombank</h4><h5>2007 - 2008</h5><p><em>266 Nam Kỳ Khởi Nghĩa, Q.3, HCM</em></p></div>
+
+        <h3 class="resume-title mt-4"><i class="fas fa-chalkboard-teacher"></i> Giảng dạy</h3>
+        <div class="resume-item">
+          <ul>
+            <li>Giảng viên – UEH (2020 – Nay)</li>
+            <li>Giảng viên – VCCI (2017 – Nay)</li>
+            <li>Hệ sinh thái khởi nghiệp, Kỹ năng mềm, Giao tiếp, Khởi nghiệp kỹ thuật số, Đánh giá dự án</li>
+          </ul>
+        </div>
+
+        
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <section id="portfolio" class="portfolio section light-background">
+      <div class="container">
+        <!-- Tiêu đề Phần -->
+        <d class="section-title">
+          <h2>Các tổ chức xã hội do thầy Phan Huỳnh Anh sáng lập</h2>
+          <p>Danh sách các đơn vị đã sáng lập và cùng đồng hành</p>
+        </d>
+
+        <!-- Các mục Danh mục -->
+        <div class="row portfolio-container">
+
+          <!-- Dự án 1 -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/1.png" class="img-fluid" alt="Dự án Học kỳ doanh nghiệp">
+              <div class="portfolio-info">
+                <h4>Học kỳ Doanh nghiệp</h4>
+                <p>50 doanh nghiệp tham gia (2018–2020)</p>
+                <a href="assets/img/portfolio/1.png" class="glightbox preview-link" data-gallery="portfolio-gallery-app" title="Học kỳ doanh nghiệp là một hình thức của học phần Thực tập và tốt nghiệp, dành cho sinh viên năm cuối nhằm kết nối với doanh nghiệp thực tế."><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dự án 2 -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-product">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/LOGO-ACTION.png" class="img-fluid" alt="CLB Action Media">
+              <div class="portfolio-info">
+                <h4>Người sáng lập CLB Action Media</h4>
+                <p>Truyền thông B2B chuyên nghiệp (2017)</p>
+                <a href="assets/img/portfolio/2.png" data-gallery="portfolio-gallery-product" class="glightbox preview-link" title="CLB Action Media chuyên cung cấp sản phẩm media chuyên nghiệp cho doanh nghiệp, định hướng B2B."><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dự án 3 -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-branding">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/msc.png" class="img-fluid" alt="Định vị bản thân">
+              <div class="portfolio-info">
+                <h4>MSC Center</h4>
+                <p>Co-Founder</p>
+                <a href="assets/img/portfolio/msc.png" data-gallery="portfolio-gallery-branding" class="glightbox preview-link" title="Khóa học giúp sinh viên khám phá bản thân và định hình con đường sự nghiệp tương lai."><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dự án 4 -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/4.png" class="img-fluid" alt="Định vị doanh nghiệp">
+              <div class="portfolio-info">
+                <h4>Kỹ năng định vị doanh nghiệp</h4>
+                <p>Viện VN Bách Nghệ Thực Hành (2019–nay)</p>
+                <a href="assets/img/portfolio/4.png" data-gallery="portfolio-gallery-books" class="glightbox preview-link" title="Khóa đào tạo kỹ năng định vị thương hiệu, phù hợp với doanh nghiệp khởi nghiệp."><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dự án 5 -->
+           <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/smentor.png" class="img-fluid" alt="Định vị doanh nghiệp">
+              <div class="portfolio-info">
+                <h4>Kỹ năng định vị doanh nghiệp</h4>
+                <p>Viện VN Bách Nghệ Thực Hành (2019–nay)</p>
+                <a href="assets/img/portfolio/smentor.png" data-gallery="portfolio-gallery-books" class="glightbox preview-link" title="Khóa đào tạo kỹ năng định vị thương hiệu, phù hợp với doanh nghiệp khởi nghiệp."><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+          </div>
+         
+          <!-- Dự án 6 -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-product">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/6.png" class="img-fluid" alt="Smar Marketing">
+              <div class="portfolio-info">
+                <h4>Đồng sáng lập công ty cổ phần Smar</h4>
+                <p>Giải pháp marketing (2020)</p>
+                <a href="assets/img/portfolio/6.png" data-gallery="portfolio-gallery-product" class="glightbox preview-link" title="Đồng nghiên cứu và thành lập Smar – công ty cung cấp giải pháp marketing cho doanh nghiệp."><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dự án 7 -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-product">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/vsm.png" class="img-fluid" alt="Smar Marketing">
+              <div class="portfolio-info">
+                <h4>Đồng sáng lập công ty cổ phần Smar</h4>
+                <p>Giải pháp marketing (2020)</p>
+                <a href="assets/img/portfolio/vsm.png" data-gallery="portfolio-gallery-product" class="glightbox preview-link" title="Đồng nghiên cứu và thành lập Smar – công ty cung cấp giải pháp marketing cho doanh nghiệp."><i class="bi bi-zoom-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+
+         
+
+        </div>
+        <!-- Nút xem thêm -->
+        <div class="load-more-wrapper">
+          <button id="loadMoreBtn" class="load-more-btn">Xem thêm</button>
+        </div>
+
+        <!-- Script Xem Thêm -->
+        <script>
+          const loadMoreBtn = document.getElementById("loadMoreBtn");
+          const hiddenItems = document.querySelectorAll(".portfolio-item.hidden");
+
+          let isExpanded = false;
+
+          loadMoreBtn.addEventListener("click", function () {
+            hiddenItems.forEach(item => {
+              item.classList.toggle("hidden");
+            });
+
+            isExpanded = !isExpanded;
+            loadMoreBtn.textContent = isExpanded ? "Rút gọn" : "Xem thêm";
+          });
+        </script>
+
+      </div>
+    </section>
+
+   <!-- Phần Các chương trình đào tạo -->
+<section id="services" class="services section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Các chương trình đào tạo</h2>
+    <p>Chúng tôi chuyên cung cấp các chương trình mentoring và coaching dành cho mentee.</p>
+  </div>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon flex-shrink-0"><i class="bi bi-gear"></i></div>
+        <div>
+          <h4 class="title">Đào Tạo Kỹ Năng Mềm & Khởi Nghiệp</h4>
+          <p class="description">Chúng tôi tổ chức các khóa học và hội thảo về kỹ năng mềm, khởi nghiệp và mentoring cho sinh viên, doanh nghiệp và tổ chức. Các chương trình được thiết kế nhằm trao quyền cho cá nhân và thúc đẩy sự đổi mới sáng tạo.</p>
+        </div>
+      </div><!-- Kết thúc Mục Các chương trình đào tạo -->
+
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon flex-shrink-0"><i class="bi bi-graph-up"></i></div>
+        <div>
+          <h4 class="title">Tư Vấn Học Kỳ Doanh Nghiệp</h4>
+          <p class="description">Chúng tôi kết nối sinh viên với doanh nghiệp thông qua chương trình Học kỳ Doanh nghiệp, giúp sinh viên có được kinh nghiệm thực tế và cải thiện năng lực chuyên môn. Đây là cầu nối giữa học thuật và thế giới kinh doanh.</p>
+        </div>
+      </div><!-- Kết thúc Mục Các chương trình đào tạo -->
+
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon flex-shrink-0"><i class="bi bi-people"></i></div>
+        <div>
+          <h4 class="title">Marketing & Xây Dựng Thương Hiệu</h4>
+          <p class="description">Chúng tôi tư vấn về chiến lược marketing, xây dựng thương hiệu cho doanh nghiệp, tổ chức sự kiện và MICE. Mục tiêu của chúng tôi là tạo ra các chiến dịch có tác động mạnh mẽ đến đối tượng mục tiêu và nâng cao sự hiện diện của thương hiệu.</p>
+        </div>
+      </div><!-- Kết thúc Mục Các chương trình đào tạo -->
+
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
+        <div class="icon flex-shrink-0"><i class="bi bi-lightbulb"></i></div>
+        <div>
+          <h4 class="title">Đổi Mới & Tích Hợp Công Nghệ</h4>
+          <p class="description">Chúng tôi tư vấn cho các tổ chức về việc tích hợp công nghệ và thực tiễn đổi mới vào hoạt động của họ. Mục tiêu là giúp doanh nghiệp phát triển trong kỷ nguyên số thông qua lập kế hoạch và thực hiện chiến lược hiệu quả.</p>
+        </div>
+      </div><!-- Kết thúc Mục Các chương trình đào tạo -->
+
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
+        <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+        <div>
+          <h4 class="title">Tư Vấn Quản Lý Dự Án</h4>
+          <p class="description">Chúng tôi cung cấp chuyên môn trong quản lý dự án để đảm bảo giao hàng dự án thành công. Từ lập kế hoạch đến thực hiện, chúng tôi hướng dẫn các nhóm đạt được mục tiêu một cách hiệu quả.</p>
+        </div>
+      </div><!-- Kết thúc Mục Các chương trình đào tạo -->
+
+      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
+        <div class="icon flex-shrink-0"><i class="bi bi-chat-dots"></i></div>
+        <div>
+          <h4 class="title">Đào Tạo Giao Tiếp Doanh Nghiệp</h4>
+          <p class="description">Chúng tôi tổ chức các buổi đào tạo tập trung vào việc nâng cao kỹ năng giao tiếp trong môi trường doanh nghiệp. Mục tiêu là phát triển các chiến lược giao tiếp hiệu quả nhằm thúc đẩy sự hợp tác và gắn kết giữa các thành viên.</p>
+        </div>
+      </div><!-- Kết thúc Mục Các chương trình đào tạo -->
+    </div>
+  </div>
+</section><!-- /Phần Các chương trình đào tạo -->
+
+
+    <!-- Phần Liên hệ -->
+    <section id="contact" class="contact section">
+
+      <!-- Tiêu đề Phần -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Liên hệ</h2>
+        <p>Nếu bạn có bất kỳ câu hỏi nào hoặc muốn hợp tác, hãy liên hệ với tôi. Tôi luôn mở cửa cho các cơ hội và kết nối mới.</p>
+      </div><!-- Kết thúc Tiêu đề Phần -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Địa chỉ</h3>
+                  <p>279 Đ. Nguyễn Tri Phương, Phường 4, Phường Diên Hồng, Hồ Chí Minh 70000, Việt Nam</p>
+                </div>
+              </div><!-- Kết thúc Mục Thông tin -->
+
+             
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email cho chúng tôi:</h3>
+                  <p>msc.edu.vn</p>
+                </div>
+              </div><!-- Kết thúc Mục Thông tin -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28376.66019326297!2d106.6302901743164!3d10.761143499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fe01ccb37b3%3A0xb9b5223950251041!2sMSC%20Center!5e1!3m2!1svi!2s!4v1749546672459!5m2!1svi!2s" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Tên của bạn</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Email của bạn</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Chủ đề</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Tin nhắn</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Đang tải</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Tin nhắn của bạn đã được gửi. Cảm ơn bạn!</div>
+
+                  <button type="submit">
+                    <i class="bi bi-send-fill me-2"></i> Gửi tin nhắn
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- Kết thúc Mẫu Liên hệ -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Phần Liên hệ -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Bản quyền</span> <strong class="px-1 sitename">2025</strong> <span>Đã được bảo lưu mọi quyền</span></p>
+      </div>
+      <div class="credits">
+        Thiết kế bởi <a href="https://www.msc.edu.vn">MSC CENTER</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Cuộn lên -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Tệp JS của nhà cung cấp -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Tệp JS chính -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+<?php include 'includes/footer.php'; ?>

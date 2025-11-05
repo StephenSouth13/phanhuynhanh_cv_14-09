@@ -14,20 +14,17 @@ if ($email === '' || $password === '') {
     error_response(400, 'Missing email or password');
 }
 
-$users = read_json(DATA_DIR . '/users.json', []);
-$match = null;
-foreach ($users as $u) {
-    if (strtolower($u['email'] ?? '') === $email) { $match = $u; break; }
-}
+$usersCollection = get_collection('users');
+$user = $usersCollection->findOne(['email' => $email]);
 
-if (!$match || !password_verify($password, $match['passwordHash'] ?? '')) {
+if (!$user || !password_verify($password, $user['passwordHash'] ?? '')) {
     error_response(401, 'Invalid credentials');
 }
 
 $_SESSION['user'] = [
-    'email' => $match['email'],
-    'name' => $match['name'] ?? 'Admin',
-    'avatar' => $match['avatar'] ?? ''
+    'email' => $user['email'],
+    'name' => $user['name'] ?? 'Admin',
+    'avatar' => $user['avatar'] ?? ''
 ];
 
 ok(['user' => $_SESSION['user']]);

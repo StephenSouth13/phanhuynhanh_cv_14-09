@@ -2,15 +2,17 @@
 
 require_once __DIR__ . '/../api/_bootstrap.php';
 
-// Default receiving email (can be overridden by data/contact.json)
-$receiving_email_address = 'stephensouth1307@example.com';
+$receiving_email_address = 'msc.edu.vn@gmail.com';
 
 // Load contact settings if available
-$contactConfig = read_json(DATA_DIR . '/contact.json', []);
-if (!empty($contactConfig['email']) && filter_var($contactConfig['email'], FILTER_VALIDATE_EMAIL)) {
-    $receiving_email_address = $contactConfig['email'];
+$contactCollection = get_collection('contact');
+$contactDoc = $contactCollection->findOne([]);
+if ($contactDoc && !empty($contactDoc['email'])) {
+    if (filter_var($contactDoc['email'], FILTER_VALIDATE_EMAIL)) {
+        $receiving_email_address = $contactDoc['email'];
+    }
 }
-$webhookUrl = isset($contactConfig['googleSheetWebhook']) ? (string)$contactConfig['googleSheetWebhook'] : '';
+$webhookUrl = isset($contactDoc['googleSheetWebhook']) ? (string)$contactDoc['googleSheetWebhook'] : '';
 
 // Check if the PHP Email Form library exists
 if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
@@ -39,36 +41,28 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
 $subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : 'No Subject';
 $contact->subject = $subject;
 
-// Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-/*
-$contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-);
-*/
-
 // Add messages to the email
 $messageBody = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : 'No message';
 $contact->add_message($from_name, 'From');
 $contact->add_message($from_email, 'Email');
 $contact->add_message($messageBody, 'Message', 10);
 
-// Persist message to data/messages.json
-$messagesFile = DATA_DIR . '/messages.json';
-$messages = read_json($messagesFile, []);
+// Persist message to MongoDB contacts collection
 $entry = [
-    'id' => bin2hex(random_bytes(8)),
     'name' => $from_name,
     'email' => $from_email,
     'subject' => $subject,
     'message' => $messageBody,
-    'createdAt' => date('c'),
+    'createdAt' => new \MongoDB\BSON\UTCDateTime(),
     'ip' => $_SERVER['REMOTE_ADDR'] ?? ''
 ];
-$messages[] = $entry;
-write_json($messagesFile, $messages);
+
+try {
+    $contactsCollection = get_collection('contacts');
+    $contactsCollection->insertOne($entry);
+} catch (\Exception $e) {
+    error_log('Failed to save contact form: ' . $e->getMessage());
+}
 
 // Forward to webhook if configured
 if ($webhookUrl) {

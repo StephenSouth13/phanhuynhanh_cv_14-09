@@ -1,0 +1,11 @@
+{
+    "name": "phanhuynhanh/cms",
+    "description": "MongoDB-based CMS for phanhuynhanh.com",
+    "require": {
+        "php": ">=7.4",
+        "mongodb/mongodb": "^1.15"
+    },
+    "autoload": {
+        "files": ["api/_database.php"]
+    }
+}
